@@ -1,7 +1,6 @@
-
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
-import { Heart, Sparkles, BookOpen, Star, Moon, Sun } from 'lucide-react';
+import { Heart, Sparkles, BookOpen, Star, Moon, Sun, Play, Pause, RotateCcw, Volume2 } from 'lucide-react';
 
 interface StoryData {
   age: string;
@@ -21,6 +20,9 @@ const StoryGenerator = () => {
     lesson: ''
   });
   const [generatedStory, setGeneratedStory] = useState('');
+  const [isReading, setIsReading] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const speechSynthesisRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   const steps = [
     { title: "What's your age?", key: 'age' },
@@ -73,6 +75,66 @@ const StoryGenerator = () => {
     { value: 'responsibility', label: 'Responsibility', icon: '⭐', description: 'Taking care of our duties', gradient: 'from-indigo-400 to-purple-500' },
     { value: 'empathy', label: 'Understanding Others', icon: '🤗', description: 'Understanding how others feel', gradient: 'from-teal-400 to-blue-500' }
   ];
+
+  // Speech synthesis functions
+  const startReading = () => {
+    if ('speechSynthesis' in window) {
+      // Stop any current speech
+      window.speechSynthesis.cancel();
+      
+      const utterance = new SpeechSynthesisUtterance(generatedStory);
+      utterance.rate = 0.8; // Slower rate for children
+      utterance.pitch = 1.1; // Slightly higher pitch
+      utterance.volume = 0.9;
+      
+      utterance.onstart = () => {
+        setIsReading(true);
+        setIsPaused(false);
+      };
+      
+      utterance.onend = () => {
+        setIsReading(false);
+        setIsPaused(false);
+      };
+      
+      utterance.onerror = () => {
+        setIsReading(false);
+        setIsPaused(false);
+      };
+      
+      speechSynthesisRef.current = utterance;
+      window.speechSynthesis.speak(utterance);
+    }
+  };
+
+  const pauseReading = () => {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+      window.speechSynthesis.pause();
+      setIsPaused(true);
+    }
+  };
+
+  const resumeReading = () => {
+    if (window.speechSynthesis.paused) {
+      window.speechSynthesis.resume();
+      setIsPaused(false);
+    }
+  };
+
+  const stopReading = () => {
+    window.speechSynthesis.cancel();
+    setIsReading(false);
+    setIsPaused(false);
+  };
+
+  // Cleanup speech synthesis on component unmount
+  useEffect(() => {
+    return () => {
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
 
   const handleSelection = (key: string, value: string | string[]) => {
     const updatedData = { ...storyData, [key]: value };
@@ -213,7 +275,7 @@ From that day forward, ${data.gender === 'boy' ? 'Alexander' : 'Aria'} was known
 
 And whenever any child in Luminastra felt afraid to try something new, to stand up for what was right, or to help someone in need, they would remember the story of ${data.gender === 'boy' ? 'Alexander' : 'Aria'} and the Whispering Valley, and they would find their own courage growing warm and strong in their hearts.
 
-The moon still shines brightly every night in Luminastra, the Guardian Spirits still dance in the Whispering Valley, and ${data.gender === 'boy' ? 'Alexander' : 'Aria'} continues to have wonderful adventures, knowing that true courage – the kind that comes from love and kindness – can overcome any challenge and light up even the darkest night.`
+The moon still shines brightly every night in Luminastra, the Guardian Spirits still dance in the Whispering Valley, and ${data.gender === 'boy' ? 'Alexander' : 'Aria'} continues to have wonderful adventures, knowing that true courage – the kind that comes from love and kindness – can overcome any challenge and light up even the darkest night."
     };
 
     // Generate story based on selections
@@ -376,6 +438,48 @@ The moon still shines brightly every night in Luminastra, the Guardian Spirits s
                     </span>
                   </div>
                 </div>
+
+                {/* Reading Controls */}
+                <div className="flex items-center justify-center space-x-4 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-4">
+                  <Volume2 className="h-6 w-6 text-purple-600" />
+                  <span className="text-purple-800 font-semibold">Read Mode:</span>
+                  {!isReading ? (
+                    <button
+                      onClick={startReading}
+                      className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full transition-colors duration-200"
+                    >
+                      <Play className="h-4 w-4" />
+                      <span>Start Reading</span>
+                    </button>
+                  ) : (
+                    <div className="flex items-center space-x-2">
+                      {!isPaused ? (
+                        <button
+                          onClick={pauseReading}
+                          className="flex items-center space-x-2 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full transition-colors duration-200"
+                        >
+                          <Pause className="h-4 w-4" />
+                          <span>Pause</span>
+                        </button>
+                      ) : (
+                        <button
+                          onClick={resumeReading}
+                          className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full transition-colors duration-200"
+                        >
+                          <Play className="h-4 w-4" />
+                          <span>Resume</span>
+                        </button>
+                      )}
+                      <button
+                        onClick={stopReading}
+                        className="flex items-center space-x-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full transition-colors duration-200"
+                      >
+                        <RotateCcw className="h-4 w-4" />
+                        <span>Stop</span>
+                      </button>
+                    </div>
+                  )}
+                </div>
                 
                 <div className="story-font text-lg leading-relaxed text-foreground space-y-6 max-h-[70vh] overflow-y-auto p-6 bg-gradient-to-b from-purple-50/50 to-pink-50/50 rounded-2xl border border-primary/10">
                   {generatedStory.split('\n\n').map((paragraph, index) => (
@@ -388,6 +492,7 @@ The moon still shines brightly every night in Luminastra, the Guardian Spirits s
                 <div className="flex justify-center">
                   <button
                     onClick={() => {
+                      stopReading(); // Stop any ongoing reading
                       setCurrentStep(0);
                       setStoryData({
                         age: '', gender: '', interests: [], style: '', lesson: ''

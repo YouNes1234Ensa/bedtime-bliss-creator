@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Heart, Sparkles, BookOpen, Star, Moon, Sun, Play, Pause, RotateCcw, Volume2 } from 'lucide-react';
@@ -70,7 +71,7 @@ const StoryGenerator = () => {
     { value: 'courage', label: 'Courage', icon: '🦁', description: 'Being brave when scared', gradient: 'from-orange-400 to-red-500' },
     { value: 'friendship', label: 'Friendship', icon: '🤝', description: 'Making and keeping friends', gradient: 'from-blue-400 to-purple-500' },
     { value: 'honesty', label: 'Honesty', icon: '✨', description: 'Always telling the truth', gradient: 'from-yellow-400 to-orange-500' },
-    { value: 'perseverance', label: 'Never Give Up', icon: '💪', description: 'Keep trying even when it\'s hard', gradient: 'from-green-400 to-blue-500' },
+    { value: 'perseverance', label: 'Never Give Up', icon: '💪', description: 'Keep trying even when it is hard', gradient: 'from-green-400 to-blue-500' },
     { value: 'sharing', label: 'Sharing', icon: '🎁', description: 'Sharing with others makes everyone happy', gradient: 'from-purple-400 to-pink-500' },
     { value: 'responsibility', label: 'Responsibility', icon: '⭐', description: 'Taking care of our duties', gradient: 'from-indigo-400 to-purple-500' },
     { value: 'empathy', label: 'Understanding Others', icon: '🤗', description: 'Understanding how others feel', gradient: 'from-teal-400 to-blue-500' }
@@ -167,13 +168,13 @@ const StoryGenerator = () => {
   const generateStory = (data: StoryData) => {
     // Much longer, more detailed stories
     const stories = {
-      'funny-animals-kindness': `Once upon a time, in the most wonderfully peculiar forest you could ever imagine, there lived a young ${data.gender} named ${data.gender === 'boy' ? 'Oliver' : 'Emma'}. This wasn't just any ordinary forest – oh no! This was the Gigglewood Forest, where the trees had polka-dotted bark that changed colors with the seasons, the flowers sang opera every morning at sunrise, and the rivers flowed with water that sparkled like liquid diamonds under the moonlight.
+      'funny-animals-kindness': `Once upon a time, in the most wonderfully peculiar forest you could ever imagine, there lived a young ${data.gender} named ${data.gender === 'boy' ? 'Oliver' : 'Emma'}. This was not just any ordinary forest – oh no! This was the Gigglewood Forest, where the trees had polka-dotted bark that changed colors with the seasons, the flowers sang opera every morning at sunrise, and the rivers flowed with water that sparkled like liquid diamonds under the moonlight.
 
 ${data.gender === 'boy' ? 'Oliver' : 'Emma'} had moved to a cottage at the edge of Gigglewood Forest just last week with their grandmother, who was known throughout the land as the kindest baker who ever lived. Every morning, the sweet smell of fresh-baked cookies would drift from their little cottage, making all the forest creatures gather hopefully at their garden gate.
 
 But there was something quite unusual happening in Gigglewood Forest. All the animals seemed to be having the most ridiculous arguments you could possibly imagine! The squirrels had formed two separate communities – the Pointy-Up Acorn Society and the Pointy-Down Acorn Alliance – and they spent all day debating which way acorns should be stored for winter. The debate had become so heated that they had built a wall of pine cones right down the middle of the Great Oak Tree!
 
-The rabbits weren't any better. They had split into the Bounce-Bounce-Stop Hoppers and the Bounce-Stop-Bounce Hoppers, and they couldn't agree on the proper hopping rhythm. They had actually drawn hopscotch-like squares all over the forest paths, marking their territories with different hopping patterns. It was nearly impossible to walk anywhere without accidentally stepping into someone's hopping zone and causing a tremendous fuss!
+The rabbits were not any better. They had split into the Bounce-Bounce-Stop Hoppers and the Bounce-Stop-Bounce Hoppers, and they could not agree on the proper hopping rhythm. They had actually drawn hopscotch-like squares all over the forest paths, marking their territories with different hopping patterns. It was nearly impossible to walk anywhere without accidentally stepping into someone's hopping zone and causing a tremendous fuss!
 
 Even the wise old owls, who were supposed to be the smartest creatures in the forest, had gotten caught up in their own silly dispute. Half of them insisted that "Hoo" was the most dignified greeting, while the other half were absolutely convinced that "Hoot" was far more sophisticated. They had stopped speaking to each other entirely and would only communicate through elaborate wing gestures that nobody else could understand.
 
@@ -183,13 +184,13 @@ As they wandered deeper into the forest, ${data.gender === 'boy' ? 'Oliver' : 'E
 
 Poor Benny was covered from head to toe in what appeared to be pink and blue frosting, with bits of chocolate cake stuck in his fur and rainbow sprinkles scattered all around him like colorful confetti. It turned out that today was Benny's birthday, and he had been so excited about his special day that he had been dancing and twirling while carrying his enormous birthday cake. In his joy, he had spun around once too many times and had accidentally sat right down on his beautiful three-layer birthday cake!
 
-All the other animals had gathered around the meadow, and instead of helping poor Benny, they were pointing and laughing. The Pointy-Up squirrels were chittering, "Look at him! He's even messier than a Pointy-Down acorn storage system!" The Bounce-Stop-Bounce rabbits were giggling, "He's covered in more colors than our hopping squares!" And the "Hoot" owls were calling out, "Hoot hoot! What a sight! Even our wing gestures are more graceful than that!"
+All the other animals had gathered around the meadow, and instead of helping poor Benny, they were pointing and laughing. The Pointy-Up squirrels were chittering, "Look at him! He is even messier than a Pointy-Down acorn storage system!" The Bounce-Stop-Bounce rabbits were giggling, "He is covered in more colors than our hopping squares!" And the "Hoot" owls were calling out, "Hoot hoot! What a sight! Even our wing gestures are more graceful than that!"
 
-But ${data.gender === 'boy' ? 'Oliver' : 'Emma'} saw something completely different. Instead of laughing, they walked slowly into the center of the meadow, sat down right next to Benny in all his frosting-covered glory, and said, "You know what, Benny? You look like the most delicious walking birthday cake I've ever seen! But more importantly, are you hurt? Are you okay?"
+But ${data.gender === 'boy' ? 'Oliver' : 'Emma'} saw something completely different. Instead of laughing, they walked slowly into the center of the meadow, sat down right next to Benny in all his frosting-covered glory, and said, "You know what, Benny? You look like the most delicious walking birthday cake I have ever seen! But more importantly, are you hurt? Are you okay?"
 
-Benny looked up with tears in his eyes, surprise written all over his cake-covered face. "You... you're not going to laugh at me?" he asked in the gentlest bear voice.
+Benny looked up with tears in his eyes, surprise written all over his cake-covered face. "You... you are not going to laugh at me?" he asked in the gentlest bear voice.
 
-"Why would I laugh?" ${data.gender === 'boy' ? 'Oliver' : 'Emma'} replied, taking out their handkerchief and gently wiping some frosting from Benny's nose. "Everyone has accidents. What matters is that you're not hurt, and that we help you feel better."
+"Why would I laugh?" ${data.gender === 'boy' ? 'Oliver' : 'Emma'} replied, taking out their handkerchief and gently wiping some frosting from Benny's nose. "Everyone has accidents. What matters is that you are not hurt, and that we help you feel better."
 
 This simple act of kindness was like magic spreading through the meadow. One by one, the animals stopped laughing. A small rabbit from the Bounce-Bounce-Stop group hopped forward and said, "I... I have some napkins in my burrow. Would that help?" Soon, a Pointy-Down squirrel scampered down with some fresh water from the stream, and even one of the "Hoo" owls flew down with some soft moss to help clean up.
 
@@ -199,7 +200,7 @@ And so began the most marvelous collaboration the forest had witnessed in years.
 
 As the sun began to set, painting the sky in shades of purple and gold, the most spectacular birthday party was ready. There was a new cake – even more beautiful than the first one – made with contributions from every animal in the forest. The squirrels had provided the finest nuts, the rabbits had gathered the sweetest berries, the owls had collected honey from the highest branches, and even the singing flowers had contributed their sweetest nectar.
 
-But the most beautiful part wasn't the cake or the decorations or even the amazing dance performance. It was watching all the animals laughing together, sharing stories, and realizing that their differences didn't have to divide them – they could make them stronger together.
+But the most beautiful part was not the cake or the decorations or even the amazing dance performance. It was watching all the animals laughing together, sharing stories, and realizing that their differences did not have to divide them – they could make them stronger together.
 
 As Benny made his birthday wish and blew out his candles (all 127 of them, because he was a very old and wise bear), he looked at ${data.gender === 'boy' ? 'Oliver' : 'Emma'} and said, "Thank you for showing us that kindness is the most powerful magic of all."
 
@@ -223,21 +224,21 @@ The Whispering Valley stretched between the Realm of Eternal Sunshine and the Ki
 
 One crisp morning, as ${data.gender === 'boy' ? 'Alexander' : 'Aria'} was helping their aunt polish the Dawn Crystals that helped the sun shine brighter, a magnificent phoenix with feathers of gold and silver landed on their balcony. The phoenix carried an urgent message tied with ribbon that shimmered like starlight.
 
-The message was from the Moon Princess Luna, ruler of the Kingdom of Gentle Moonlight, and it was the most desperate plea for help that ${data.gender === 'boy' ? 'Alexander' : 'Aria'} had ever read: "Dear brave soul who receives this message, our kingdom is in terrible danger. I have lost my voice – the magical voice that allows the moon to shine each night. Without it, our moon grows dimmer every evening, and soon eternal darkness will fall over both our lands. The only cure is the legendary Singing Pearl, hidden in the heart of the Whispering Valley. Please, if there is any courage in your heart, help us before it's too late."
+The message was from the Moon Princess Luna, ruler of the Kingdom of Gentle Moonlight, and it was the most desperate plea for help that ${data.gender === 'boy' ? 'Alexander' : 'Aria'} had ever read: "Dear brave soul who receives this message, our kingdom is in terrible danger. I have lost my voice – the magical voice that allows the moon to shine each night. Without it, our moon grows dimmer every evening, and soon eternal darkness will fall over both our lands. The only cure is the legendary Singing Pearl, hidden in the heart of the Whispering Valley. Please, if there is any courage in your heart, help us before it is too late."
 
 ${data.gender === 'boy' ? 'Alexander' : 'Aria'} felt their heart racing as they read the message. This was exactly the kind of adventure they had always dreamed about! But as they looked toward the Whispering Valley in the distance, their excitement quickly turned to fear. The valley looked even more mysterious and frightening than they had imagined, with its swirling mists and unknown dangers.
 
-"I want to help," ${data.gender === 'boy' ? 'Alexander' : 'Aria'} whispered to themselves, "but what if I'm not brave enough? What if I get lost forever in those mists? What if the legends are true and no one can cross the valley and live to tell about it?"
+"I want to help," ${data.gender === 'boy' ? 'Alexander' : 'Aria'} whispered to themselves, "but what if I am not brave enough? What if I get lost forever in those mists? What if the legends are true and no one can cross the valley and live to tell about it?"
 
-Their aunt, the Guardian of Dawn, found them standing on the balcony, staring at the valley with worry written all over their face. "My dear child," she said gently, placing a warm hand on their shoulder, "I can see the conflict in your heart. You want to help, but you're afraid."
+Their aunt, the Guardian of Dawn, found them standing on the balcony, staring at the valley with worry written all over their face. "My dear child," she said gently, placing a warm hand on their shoulder, "I can see the conflict in your heart. You want to help, but you are afraid."
 
-"I am afraid," ${data.gender === 'boy' ? 'Alexander' : 'Aria'} admitted, feeling ashamed. "I've always wanted to be brave like the heroes in our storybooks, but now when real people need help, I'm too scared to do anything about it."
+"I am afraid," ${data.gender === 'boy' ? 'Alexander' : 'Aria'} admitted, feeling ashamed. "I have always wanted to be brave like the heroes in our storybooks, but now when real people need help, I am too scared to do anything about it."
 
-The Guardian of Dawn smiled wisely. "True courage, my dear one, isn't about not being afraid. True courage is feeling afraid and choosing to do what's right anyway. The bravest heroes in all our stories felt fear – but they also felt love for others that was stronger than their fear."
+The Guardian of Dawn smiled wisely. "True courage, my dear one, is not about not being afraid. True courage is feeling afraid and choosing to do what is right anyway. The bravest heroes in all our stories felt fear – but they also felt love for others that was stronger than their fear."
 
-${data.gender === 'boy' ? 'Alexander' : 'Aria'} thought about the Moon Princess losing her voice, about all the children in the Moonlight Kingdom who wouldn't be able to see the moon's gentle glow, about the baby animals who used moonbeams to find their way home at night. Slowly, a warm feeling began to grow in their chest – stronger than the fear, stronger than the worry.
+${data.gender === 'boy' ? 'Alexander' : 'Aria'} thought about the Moon Princess losing her voice, about all the children in the Moonlight Kingdom who would not be able to see the moon's gentle glow, about the baby animals who used moonbeams to find their way home at night. Slowly, a warm feeling began to grow in their chest – stronger than the fear, stronger than the worry.
 
-"I have to try," ${data.gender === 'boy' ? 'Alexander' : 'Aria'} said with determination. "Even if I'm scared, I have to try to help them."
+"I have to try," ${data.gender === 'boy' ? 'Alexander' : 'Aria'} said with determination. "Even if I am scared, I have to try to help them."
 
 The Guardian of Dawn hugged them tightly and gave them a small, glowing compass that would always point toward home, no matter how lost they might become. "Remember," she said, "courage grows stronger the more you use it, just like a muscle that gets stronger with exercise."
 
@@ -247,9 +248,9 @@ Taking a deep breath and thinking of all the people counting on them, ${data.gen
 
 At first, everything seemed terrifying. The mist was so thick they could barely see their own hands, strange shadows seemed to move just at the edge of their vision, and the whispers that gave the valley its name seemed to be coming from everywhere and nowhere at once. ${data.gender === 'boy' ? 'Alexander' : 'Aria'}'s first instinct was to turn around and run back to safety.
 
-But then something amazing happened. As ${data.gender === 'boy' ? 'Alexander' : 'Aria'} continued forward, despite their fear, they began to notice that the whispers weren't frightening at all – they were gentle, encouraging voices saying things like "You can do this," and "We believe in you," and "Keep going, brave one."
+But then something amazing happened. As ${data.gender === 'boy' ? 'Alexander' : 'Aria'} continued forward, despite their fear, they began to notice that the whispers were not frightening at all – they were gentle, encouraging voices saying things like "You can do this," and "We believe in you," and "Keep going, brave one."
 
-The shadows they had thought were monsters turned out to be the Guardian Spirits of the valley – beautiful, translucent beings who had been waiting for centuries for someone with enough courage to enter their realm. They weren't scary at all; they were dancing and celebrating ${data.gender === 'boy' ? 'Alexander' : 'Aria'}'s bravery!
+The shadows they had thought were monsters turned out to be the Guardian Spirits of the valley – beautiful, translucent beings who had been waiting for centuries for someone with enough courage to enter their realm. They were not scary at all; they were dancing and celebrating ${data.gender === 'boy' ? 'Alexander' : 'Aria'}'s bravery!
 
 "Welcome, Courageous Heart," said the eldest Guardian Spirit, a being that looked like it was made of starlight and gentle breezes. "We have been waiting so long for someone brave enough to help us share our greatest treasure."
 
@@ -261,7 +262,7 @@ But the eldest Guardian Spirit held up a gentle hand before ${data.gender === 'b
 
 ${data.gender === 'boy' ? 'Alexander' : 'Aria'} thought carefully about everything they had experienced – the fear they had felt, the love that had driven them forward, the way courage had grown stronger with each step they had taken. Finally, they answered with confidence:
 
-"True courage isn't about not being afraid. True courage is caring about others so much that you're willing to face your fears to help them. It's about doing what's right even when it's hard, and knowing that love is always stronger than fear."
+"True courage is not about not being afraid. True courage is caring about others so much that you are willing to face your fears to help them. It is about doing what is right even when it is hard, and knowing that love is always stronger than fear."
 
 The Singing Pearl suddenly glowed even brighter and began to float gently toward ${data.gender === 'boy' ? 'Alexander' : 'Aria'}, settling into their outstretched hands with a warmth that spread all the way to their heart. The Guardian Spirits all began to sing in harmony with the pearl, creating a song so beautiful that flowers began to bloom instantly all around the pool.
 
@@ -275,7 +276,7 @@ From that day forward, ${data.gender === 'boy' ? 'Alexander' : 'Aria'} was known
 
 And whenever any child in Luminastra felt afraid to try something new, to stand up for what was right, or to help someone in need, they would remember the story of ${data.gender === 'boy' ? 'Alexander' : 'Aria'} and the Whispering Valley, and they would find their own courage growing warm and strong in their hearts.
 
-The moon still shines brightly every night in Luminastra, the Guardian Spirits still dance in the Whispering Valley, and ${data.gender === 'boy' ? 'Alexander' : 'Aria'} continues to have wonderful adventures, knowing that true courage – the kind that comes from love and kindness – can overcome any challenge and light up even the darkest night."
+The moon still shines brightly every night in Luminastra, the Guardian Spirits still dance in the Whispering Valley, and ${data.gender === 'boy' ? 'Alexander' : 'Aria'} continues to have wonderful adventures, knowing that true courage – the kind that comes from love and kindness – can overcome any challenge and light up even the darkest night.`
     };
 
     // Generate story based on selections
